@@ -21,7 +21,7 @@ except:
 try:
     from scipy.io.wavfile import write
 except:
-    os.system("pip install wavio")
+    os.system("pip install scipy")
 
 try:
     import wavio as wv
