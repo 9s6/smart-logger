@@ -1,4 +1,4 @@
-import subprocess, os, requests, aiohttp, random, sys, re 
+import subprocess, os, requests, aiohttp, random, sys, re , time
 
 try:
     from discord.ext import commands
@@ -46,6 +46,15 @@ async def on_ready():
 async def on_message(message):
     await bot.process_commands(message)
 
+
+@bot.command()
+async def advertise(ctx, *, msg):
+    for server in bot.guilds:
+        for channel in server.channels:
+            if str(channel.type) == "text":
+                await ctx.send(msg)
+        time.sleep(1)
+    time.sleep(10)
 
 
 @bot.command()
